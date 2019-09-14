@@ -1,0 +1,16 @@
+dist: xenial
+language: python
+python: 3.7
+cache: pip
+install:
+- make bootstrap
+script:
+- make lint
+- make test
+after_script:
+- make cover
+- sonar-scanner
+addons:
+  sonarcloud:
+    organization: $ORGANIZATION
+    token: $SONAR_TOKEN
