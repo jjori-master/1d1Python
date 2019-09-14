@@ -9,3 +9,8 @@ script:
 - make test
 after_script:
 - make cover
+- sonar-scanner
+addons:
+  sonarcloud:
+    organization: $ORGANIZATION
+    token: $SONAR_TOKEN
