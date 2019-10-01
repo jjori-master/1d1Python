@@ -79,3 +79,40 @@ def string_validators(S):
     print(is_contains_digit(S))
     print(is_contains_lower(S))
     print(is_contains_upper(S))
+
+
+'''
+https://www.hackerrank.com/challenges/python-string-formatting/problem
+Given an integer, N, print the following values for each integer i from 1 to n :
+정수 N이 주어지면 1부턴 n까지 각 정수 i에 대해 다음 값을 인쇄하십시오.. 싫어..
+1. Decimal 10진수
+2. Octal 8진수
+3. Hexadecimal (capitalized) 16진수 대문자 표시해라잉
+4. Binary 2진수
+
+The four values must be printed on a single line in the order specified above for each i from 1 to n.
+네 개의 값은 1에서 n까지의 각 i에 대해 위에서 지정한 순서대로 한 줄에 인쇄되어야합니다.
+
+Each value should be space-padded to match the width of the binary value of n.
+각 값은 n의 이진 값 너비와 일치하도록 공백으로 채워야합니다.
+N이 17일 경우 2진수는 10001 즉 5칸으로 채우면된다.
+'''
+
+
+def interval(N, target):
+    length = len(bin(N)[2:]) - len(str(target)) + 1
+    return ''.join([' '] * (length + 1))
+
+
+def string_formatting(N):
+
+    for i in range(N):
+        n = i + 1
+        dec = n
+        octal = int(oct(n), 8)
+        hexadecimal = format(n, 'x').upper()
+        binary = bin(n)[2:]
+
+        str = f'{dec} {octal} {hexadecimal} {binary}'
+
+        print(str)

@@ -35,3 +35,12 @@ def test_string_validators(capsys):
     assert spliced_captured_out[2] == 'False'
     assert spliced_captured_out[3] == 'False'
     assert spliced_captured_out[4] == 'False'
+
+
+def test_string_formatting(capsys):
+    string_formatting(2)
+
+    captured = capsys.readouterr()
+    spliced_captured_out = captured.out.split("\n")[:2]
+
+    assert spliced_captured_out[0] == '1 1 1 1'
