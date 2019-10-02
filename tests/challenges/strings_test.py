@@ -44,3 +44,18 @@ def test_string_formatting(capsys):
     spliced_captured_out = captured.out.split("\n")[:2]
 
     assert spliced_captured_out[0] == '1 1 1 1'
+
+
+def test_wrap(capsys):
+    wrap('ABCDEFGHIJKLIMNOQRSTUVWXYZ', 4)
+
+    captured = capsys.readouterr()
+    spliced_captured_out = captured.out.split("\n")[:7]
+
+    assert spliced_captured_out[0] == 'ABCD'
+    assert spliced_captured_out[1] == 'EFGH'
+    assert spliced_captured_out[2] == 'IJKL'
+    assert spliced_captured_out[3] == 'IMNO'
+    assert spliced_captured_out[4] == 'QRST'
+    assert spliced_captured_out[5] == 'UVWX'
+    assert spliced_captured_out[6] == 'YZ'

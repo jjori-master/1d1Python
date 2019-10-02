@@ -1,4 +1,7 @@
 # coding=utf-8
+import textwrap
+
+
 def swap_case(str):
     swap_char_list = []
     for c in str:
@@ -105,7 +108,6 @@ def interval(N, target):
 
 
 def string_formatting(N):
-
     for i in range(N):
         n = i + 1
         dec = n
@@ -116,3 +118,18 @@ def string_formatting(N):
         str = f'{dec} {octal} {hexadecimal} {binary}'
 
         print(str)
+
+
+'''
+You are given a string S and width w.
+너에게 S라는 문자와 w라는 길이를 제공한다.
+
+You task is to wrap the string into a paragraph of width w.
+너의 일은 문자열을 w 너비의 단락으로 감싸는 것
+
+textwrap 라이브러리 사용
+'''
+
+
+def wrap(string, max_width):
+    print('\n'.join(textwrap.wrap(string, max_width)))
