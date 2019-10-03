@@ -59,3 +59,11 @@ def test_wrap(capsys):
     assert spliced_captured_out[4] == 'QRST'
     assert spliced_captured_out[5] == 'UVWX'
     assert spliced_captured_out[6] == 'YZ'
+
+
+def test_capitalize(capsys):
+    capitalize('chris alan')
+
+    captured = capsys.readouterr()
+
+    assert captured.out == 'Chris Alan\n'

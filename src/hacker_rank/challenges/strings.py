@@ -133,3 +133,11 @@ textwrap 라이브러리 사용
 
 def wrap(string, max_width):
     print('\n'.join(textwrap.wrap(string, max_width)))
+
+
+def capitalize(s):
+    arr = s.split(' ')
+    for i in range(len(arr)):
+        arr[i] = arr[i].capitalize()
+
+    print(' '.join(arr))
