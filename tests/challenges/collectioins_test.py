@@ -7,3 +7,17 @@ def test_shoes_shop():
     result = shoes_shop(number_of_shoes, customer_needs)
 
     assert result == 200
+
+
+def test_calc_deque(capsys):
+    operations = ['append 1']
+
+    result = calc_deque(operations)
+    list = []
+    for n in result:
+        list.append(n)
+
+    print(list)
+    captured = capsys.readouterr()
+
+    assert captured.out == '[1]\n'
