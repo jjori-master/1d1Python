@@ -10,7 +10,7 @@ def test_shoes_shop():
 
 
 def test_calc_deque(capsys):
-    operations = ['append 1']
+    operations = ['append 1', 'append 2', 'append 3', 'appendleft 4', 'pop', 'popleft']
 
     result = calc_deque(operations)
     list = []
@@ -20,4 +20,4 @@ def test_calc_deque(capsys):
     print(list)
     captured = capsys.readouterr()
 
-    assert captured.out == '[1]\n'
+    assert captured.out == '[1, 2]\n'

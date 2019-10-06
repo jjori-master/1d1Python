@@ -25,8 +25,13 @@ def calc_deque(operations):
     d = deque()
 
     for op_group in operations:
-        op = op_group.split(' ')[0]
-        n = int(op_group.split(' ')[1])
+
+        splited_op_group = op_group.split(' ')
+
+        op = splited_op_group[0]
+
+        if len(splited_op_group) > 1:
+            n = int(splited_op_group[1])
 
         if op == 'append':
             d.append(n)
