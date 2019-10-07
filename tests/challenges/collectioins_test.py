@@ -12,7 +12,7 @@ def test_shoes_shop():
 def test_calc_deque(capsys):
     operations = ['append 1', 'append 2', 'append 3', 'appendleft 4', 'pop', 'popleft']
 
-    result = calc_deque(operations)
+    result = deque_operator(operations)
     list = []
     for n in result:
         list.append(n)

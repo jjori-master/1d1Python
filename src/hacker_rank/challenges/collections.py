@@ -21,48 +21,21 @@ def shoes_shop(number_of_shoes, customer_needs):
     return total_price
 
 
-def calc_deque(operations):
+# noinspection PyCallingNonCallable
+def deque_operator(commands):
     d = deque()
 
-    for op_group in operations:
+    for command in commands:
+        splited_command = command.split(' ')
+        c = splited_command[0]
 
-        splited_op_group = op_group.split(' ')
+        method_to_call = getattr(d, c)
 
-        op = splited_op_group[0]
-
-        if len(splited_op_group) > 1:
-            n = int(splited_op_group[1])
-
-        if op == 'append':
-            d.append(n)
+        if len(splited_command) > 1:
+            n = int(splited_command[1])
+            method_to_call(n)
             continue
 
-        if op == 'appendleft':
-            d.appendleft(n)
-            continue
-
-        if op == 'clear':
-            d.clear()
-            continue
-
-        if op == 'extend':
-            d.extend(n)
-            continue
-
-        if op == 'extendleft':
-            d.extendleft(n)
-            continue
-
-        if op == 'pop':
-            d.pop()
-            continue
-
-        if op == 'popleft':
-            d.popleft()
-            continue
-
-        if op == 'reverse':
-            d.reverse()
-            continue
+        method_to_call()
 
     return d
