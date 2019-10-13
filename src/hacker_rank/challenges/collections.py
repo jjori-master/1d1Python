@@ -1,4 +1,4 @@
-from collections import (Counter, deque)
+from collections import Counter
 
 
 def shoes_shop(number_of_shoes, customer_needs):
@@ -22,20 +22,15 @@ def shoes_shop(number_of_shoes, customer_needs):
 
 
 # noinspection PyCallingNonCallable
-def deque_operator(commands):
-    d = deque()
+def operate_deque(d, input_str):
+    command_set = input_str.split(' ')
+    command = command_set[0]
 
-    for command in commands:
-        splited_command = command.split(' ')
-        c = splited_command[0]
+    method_to_call = getattr(d, command)
 
-        method_to_call = getattr(d, c)
+    if len(command_set) > 1:
+        n = int(command_set[1])
+        method_to_call(n)
+        return
 
-        if len(splited_command) > 1:
-            n = int(splited_command[1])
-            method_to_call(n)
-            continue
-
-        method_to_call()
-
-    return d
+    method_to_call()
