@@ -19,4 +19,15 @@ def incomplete_payers(participant, completion):
 # https://programmers.co.kr/learn/courses/30/lessons/42577
 # 전화 번호
 def phone_number_startswith(phone_book):
-    pass
+    answer = True
+
+    for prefix_number in phone_book:
+        res = {number for number in phone_book
+               if number > prefix_number and number.startswith(prefix_number)}
+        if not res:
+            continue
+
+        answer = False
+        break
+
+    return answer
