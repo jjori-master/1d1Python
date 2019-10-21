@@ -27,3 +27,15 @@ def test_phone_number_startswith():
 
     answer = phone_number_startswith(['12', '123', '1235', '567', '88'])
     assert not answer
+
+
+def test_camouflage():
+    clothes = [['yellow_hat', 'headgear'], ['blue_sunglasses', 'eyewear'], ['green_turban', 'headgear']]
+    answer = camouflage(clothes)
+
+    assert answer == 5
+
+    clothes = [['crow_mask', 'face'], ['blue_sunglasses', 'face'], ['smoky_makeup', 'ace']]
+    answer = camouflage(clothes)
+
+    assert answer == 3
