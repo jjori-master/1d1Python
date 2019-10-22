@@ -39,10 +39,10 @@ def phone_number_startswith(phone_book):
 # https://programmers.co.kr/learn/courses/30/lessons/42578
 # 위장
 def camouflage(clothes):
-    li = list(dict(Counter(list(map(lambda c: c[1], clothes)))).values())
+    li = Counter(list(map(lambda c: c[1], clothes))).values()
 
     answer = 0
     for i in range(len(li)):
-        answer = answer + sum(list(map(lambda t: (reduce(lambda x, y: x * y, t)), list(combinations(li, i + 1)))))
+        answer = answer + sum(map(lambda t: (reduce(lambda x, y: x * y, t)), list(combinations(li, i + 1))))
 
     return answer

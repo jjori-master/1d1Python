@@ -46,3 +46,5 @@ def test_camouflage():
     assert answer == 23
 
 
+def testaa():
+    clothes = [['yellow_hat', 'headgear'], ['blue_sunglasses', 'eyewear'], ['green_turban', 'headgear']]
