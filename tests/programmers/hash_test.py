@@ -44,5 +44,5 @@ def test_camouflage():
     answer = camouflage(clothes)
 
     assert answer == 23
-    
+
 

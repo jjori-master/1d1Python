@@ -41,15 +41,8 @@ def phone_number_startswith(phone_book):
 def camouflage(clothes):
     li = list(dict(Counter(list(map(lambda c: c[1], clothes)))).values())
 
-    n_list = list(range(sum(li)))
-    m_list = list(map(lambda x: x + 1, list(range(sum([2, 1])))))
-    duple_count = sum(list(map(lambda x: x - 1, li)))
-
     answer = 0
-    for m in m_list:
-        answer = answer + len(list(combinations(n_list, m)))
-
-        if m > 1:
-            answer = answer - duple_count
+    for i in range(len(li)):
+        answer = answer + sum(list(map(lambda t: (reduce(lambda x, y: x * y, t)), list(combinations(li, i + 1)))))
 
     return answer
