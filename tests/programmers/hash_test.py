@@ -35,7 +35,14 @@ def test_camouflage():
 
     assert answer == 5
 
-    clothes = [['crow_mask', 'face'], ['blue_sunglasses', 'face'], ['smoky_makeup', 'ace']]
+    clothes = [['crow_mask', 'face'], ['blue_sunglasses', 'face'], ['smoky_makeup', 'face']]
     answer = camouflage(clothes)
 
     assert answer == 3
+
+    clothes = [['얼굴1', '얼굴'], ['얼굴2', '얼굴'], ['얼굴3', '얼굴'],  ['상의1', '상의'],  ['상의2', '상의'], ['하의', '하의']]
+    answer = camouflage(clothes)
+
+    assert answer == 23
+    
+

@@ -1,5 +1,6 @@
 from collections import Counter
 from functools import reduce
+from itertools import combinations
 
 
 # https://programmers.co.kr/learn/courses/30/lessons/42576?language=python3
@@ -38,20 +39,17 @@ def phone_number_startswith(phone_book):
 # https://programmers.co.kr/learn/courses/30/lessons/42578
 # 위장
 def camouflage(clothes):
-    answer = 0
     li = list(dict(Counter(list(map(lambda c: c[1], clothes)))).values())
 
-    answer = answer + sum(li)
-    answer = answer + reduce(lambda x, y: x * y, li)
+    n_list = list(range(sum(li)))
+    m_list = list(map(lambda x: x + 1, list(range(sum([2, 1])))))
+    duple_count = sum(list(map(lambda x: x - 1, li)))
 
-    counter = len(li) - 1
+    answer = 0
+    for m in m_list:
+        answer = answer + len(list(combinations(n_list, m)))
 
-    while counter > 0:
-        target_index = len(li) - (counter - 1)
-        target = li[target_index:target_index + 1][0]
-        for n in li[len(li) - counter:]:
-            answer = answer + (target * n)
-
-        counter = counter - 1
+        if m > 1:
+            answer = answer - duple_count
 
     return answer
