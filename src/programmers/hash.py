@@ -1,6 +1,4 @@
 from collections import Counter
-from functools import reduce
-from itertools import combinations
 
 
 # https://programmers.co.kr/learn/courses/30/lessons/42576?language=python3
@@ -39,10 +37,11 @@ def phone_number_startswith(phone_book):
 # https://programmers.co.kr/learn/courses/30/lessons/42578
 # 위장
 def camouflage(clothes):
-    li = Counter(list(map(lambda c: c[1], clothes))).values()
+    c = Counter([x[1] for x in clothes]).values()
 
-    answer = 0
-    for i in range(len(li)):
-        answer = answer + sum(map(lambda t: (reduce(lambda x, y: x * y, t)), list(combinations(li, i + 1))))
+    answer = 1
+    for i in c:
+        print(f'i is {i}, type is {type(i)}')
+        answer *= (i + 1)
 
-    return answer
+    return answer - 1
