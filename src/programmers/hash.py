@@ -41,7 +41,6 @@ def camouflage(clothes):
 
     answer = 1
     for i in c:
-        print(f'i is {i}, type is {type(i)}')
         answer *= (i + 1)
 
     return answer - 1
