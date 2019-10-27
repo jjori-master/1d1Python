@@ -1,7 +1,8 @@
+from itertools import permutations
+
+
 # https://programmers.co.kr/learn/courses/30/lessons/42748
 # 위장
-
-
 def k_number(array, commands):
     answer = []
 
@@ -15,3 +16,9 @@ def k_number(array, commands):
         answer.append(dab[0])
 
     return answer
+
+
+def big_number(numbers):
+    li = permutations(numbers)
+
+    return max(map(lambda l: ''.join(map(str, l)), li))

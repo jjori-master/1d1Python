@@ -8,3 +8,10 @@ def test_k_number():
     answer = k_number(array, commands)
 
     assert answer == [5, 6, 3]
+
+def test_big_number():
+    numbers = [6, 10, 2]
+
+    answer = big_number(numbers)
+
+    assert answer == '6210'
