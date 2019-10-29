@@ -19,6 +19,4 @@ def k_number(array, commands):
 
 
 def big_number(numbers):
-    li = permutations(numbers)
-
-    return max(map(lambda l: ''.join(map(str, l)), li))
+    return max(map(lambda l: ''.join(l), permutations(str(n) for n in numbers)))

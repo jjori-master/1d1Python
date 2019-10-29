@@ -63,3 +63,32 @@ def collatz_solution(num):
         answer = answer + 1
 
     return -1 if answer >= 500 else answer
+
+
+"""
+실패율
+https://programmers.co.kr/learn/courses/30/lessons/42889
+"""
+
+
+def probability_of_failure(N, stages):
+    answer = []
+
+    for n in range(1, N + 1):
+        total_count = len(stages)
+
+        if not [x for x in stages if x == n]:
+            answer.append([n, 0])
+            continue
+
+        stages = [x for x in stages if x > n]
+
+        if not stages:
+            answer.append([n, 1.0])
+            continue
+
+        answer.append([n, (total_count - len(stages)) / total_count])
+
+    answer = [x[0] for x in sorted(answer, key=lambda e: (-e[1], e[0]))]
+
+    return answer
