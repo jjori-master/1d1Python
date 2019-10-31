@@ -92,3 +92,13 @@ def probability_of_failure(N, stages):
     answer = [x[0] for x in sorted(answer, key=lambda e: (-e[1], e[0]))]
 
     return answer
+
+
+"""
+문자열 내 마음대로 정렬하기
+https://programmers.co.kr/learn/courses/30/lessons/12915
+"""
+
+
+def sort_my_strings_at_will(strings, n):
+    return sorted(strings, key=lambda s: (s[n], s))

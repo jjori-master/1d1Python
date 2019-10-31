@@ -19,9 +19,18 @@ def test_collatz_solution():
     answer = collatz_solution(626331)
     assert answer == -1
 
-def test_probability_of_failure():
-    answer =  probability_of_failure(5, [2, 1, 2, 6, 2, 4, 3, 3])
-    assert answer == [3,4,2,1,5]
 
-    answer = probability_of_failure(4, [4,4,4,4,4])
-    assert answer == [4,1,2,3]
+def test_probability_of_failure():
+    answer = probability_of_failure(5, [2, 1, 2, 6, 2, 4, 3, 3])
+    assert answer == [3, 4, 2, 1, 5]
+
+    answer = probability_of_failure(4, [4, 4, 4, 4, 4])
+    assert answer == [4, 1, 2, 3]
+
+
+def sort_my_strings_at_will():
+    answer = sort_my_strings_at_will(['sun', 'bed', 'car'], 1)
+    assert answer == ['car', 'bed', 'sun']
+
+    answer = sort_my_strings_at_will(['abce', 'abcd', 'cdx'], 1)
+    assert answer == ['abcd', 'abce', 'cdx']
