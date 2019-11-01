@@ -34,3 +34,17 @@ def sort_my_strings_at_will():
 
     answer = sort_my_strings_at_will(['abce', 'abcd', 'cdx'], 1)
     assert answer == ['abcd', 'abce', 'cdx']
+
+
+def best_album_test():
+    answer = best_album(["classic", "pop", "classic", "classic", "pop"], [500, 600, 150, 800, 2500])
+    assert answer == [4, 1, 3, 0]
+
+    answer = best_album(["classic", "pop", "classic", "classic", "pop"], [200, 600, 200, 100, 2500])
+    assert answer == [4, 1, 0, 2]
+
+    answer = best_album(["classic", "pop", "classic", "classic"], [200, 5000, 200, 100])
+    assert answer == [1, 0, 2]
+
+    answer = best_album(["classic", "pop", "classic", "classic", "pop"], [200, 100, 200, 100])
+    assert answer == [0, 2, 1]

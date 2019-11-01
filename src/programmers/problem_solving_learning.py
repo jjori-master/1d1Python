@@ -102,3 +102,34 @@ https://programmers.co.kr/learn/courses/30/lessons/12915
 
 def sort_my_strings_at_will(strings, n):
     return sorted(strings, key=lambda s: (s[n], s))
+
+
+"""
+베스트앨범
+https://programmers.co.kr/learn/courses/30/lessons/42579#
+"""
+
+
+def best_album(genres, plays):
+    d = {}
+    for idx, key in enumerate(genres):
+        if key not in d:
+            d[key] = {
+                'total_count': 0,
+                'members': {}
+            }
+
+        d[key]['total_count'] += plays[idx]
+        d[key]['members'][idx] = plays[idx]
+
+    keys = sorted(d, key=lambda k: d[k]['total_count'], reverse=True)
+
+    answer = []
+    for key in keys:
+        target = d[key]
+        members = target['members']
+
+        top_members = sorted(members, key=lambda k: (-members[k], k))
+        answer.extend(top_members[:2])
+
+    return answer
