@@ -47,4 +47,24 @@
     > 만약 들어온 유저가 관리자인지 판단하는 코드를 assert로 만들고 해당 설정이 꺼져있다면
     >
     > 어떤 유저든지 관리자 권한으로 접근하게 되는 우를 범할 수 있음.
+    
+    ```python
+    def delete_product(prod_id, user):
+        assert user.is_admin(), 'Must be admin'
+        assert store.has_product(prod_id), 'Unknown product'
+        store.get_product(prod_id).delete()
+    ```
+    
+  - 절대 실패하지 않는 단언문
+  
+    > 항상 `참`이 되는 파이썬 단언문을 실수로 작성할 수 있다.
+    > assert 문에서 첫 번째 인자로 `튜플`을 전달하면 그 단언문은 항상 참이 된다.
+  
+    ```python
+    assert (1 == 2, 'This should fail')
+    ```
+  
+    > lint에서 어느 정도 방어를 해주지만,  단언문 선언 후 해당 단언문이 반드시 실패되는지
+    >
+    > 테스트 해야 한다.
 
