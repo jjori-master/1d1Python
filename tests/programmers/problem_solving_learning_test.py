@@ -48,3 +48,28 @@ def best_album_test():
 
     answer = best_album(["classic", "pop", "classic", "classic", "pop"], [200, 100, 200, 100])
     assert answer == [0, 2, 1]
+
+def test_abuser():
+    user_id = ["frodo", "fradi", "crodo", "abc123", "frodoc"]
+    banned_id = ["fr*d*", "abc1**"]
+
+    answer = abuser(user_id, banned_id)
+    assert answer == 2
+
+    user_id = ["frodo", "fradi", "crodo", "abc123", "frodoc"]
+    banned_id = ["*rodo", "*rodo", "******"]
+
+    answer = abuser(user_id, banned_id)
+    assert answer == 2
+
+    user_id = ["frodo", "fradi", "crodo", "abc123", "frodoc"]
+    banned_id = ["fr*d*", "*rodo", "******", "******"]
+
+    answer = abuser(user_id, banned_id)
+    assert answer == 3
+
+def test_rooms():
+    k = 10
+    room_number = [1, 3, 4, 1, 3, 1]
+    answer = rooms(k, room_number)
+    assert answer == [1, 3, 4, 2, 5, 6]

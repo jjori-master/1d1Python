@@ -133,3 +133,48 @@ def best_album(genres, plays):
         answer.extend(top_members[:2])
 
     return answer
+
+
+def abuser(user_id, banned_id):
+    answer = []
+
+    for id in banned_id:
+        target_idx = list(map(lambda l: l[0], (filter(lambda l: l[1], [[idx, s != '*'] for idx, s in enumerate(id)]))))
+        target_str = id.replace('*', '')
+
+        for uid in user_id:
+            arr = [[idx, s] for idx, s in enumerate(uid)]
+            v_uid = ''.join(map(lambda l: l[1], filter(lambda l: l[0] in target_idx, arr)))
+            if target_str == v_uid and v_uid not in answer:
+                answer.append(v_uid)
+
+    return len(answer)
+
+
+def rooms(k, room_number):
+    hotel_rooms = dict.fromkeys([room_number for room_number in range(1, k+1)], False)
+    answer = []
+
+    for number in room_number:
+        if not hotel_rooms[number]:
+            hotel_rooms[number] = True
+            print(hotel_rooms)
+            answer.append(number)
+            continue
+
+        exists_room = False
+        for p_number in range(number, k + 1):
+            if not hotel_rooms[p_number]:
+                hotel_rooms[p_number] = True
+                answer.append(p_number)
+                exists_room = True
+                break
+
+        if not exists_room:
+            for p_number in range(1, k + 1):
+                if not hotel_rooms[p_number]:
+                    hotel_rooms[p_number] = True
+                    answer.append(p_number)
+                    break
+
+    return answer
