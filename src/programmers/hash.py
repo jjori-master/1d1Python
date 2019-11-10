@@ -44,3 +44,41 @@ def camouflage(clothes):
         answer *= (i + 1)
 
     return answer - 1
+
+
+def convert_parentheses(p):
+    if not p:
+        return ''
+
+    answer = ''
+
+    p_list = list(p)
+
+    u = ''
+    flag = True
+
+    i = 0
+
+    while p_list:
+        text = p_list.pop(0)
+        u += text
+
+        if text == '(':
+            i += 1
+        else:
+            i -= 1
+
+        if i < 0: flag = False
+
+        if i == 0:
+            if flag:
+                answer += u
+                u = ''
+            else:
+                s = '(' + convert_parentheses(''.join(p_list)) + ')'
+
+                answer += s + ''.join([')' if x == '(' else '(' for x in u[1:-1]])
+
+                break
+
+    return answer
