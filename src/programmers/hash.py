@@ -44,4 +44,3 @@ def camouflage(clothes):
         answer *= (i + 1)
 
     return answer - 1
-
