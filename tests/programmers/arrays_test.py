@@ -9,6 +9,7 @@ def test_k_number():
 
     assert answer == [5, 6, 3]
 
+
 def test_big_number():
     numbers = [6, 10, 2]
 
